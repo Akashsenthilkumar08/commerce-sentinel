@@ -365,11 +365,8 @@ export default function AIBuyerPage() {
         <div className="flex items-center gap-3">
           <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-mono flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            WINDOW 1 : AI BUYER AGENT
+            AI BUYER AGENT
           </span>
-          <Link href="/dashboard/products" target="_blank" className="text-xs font-mono bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-lg hover:bg-slate-800 text-slate-300 flex items-center gap-1">
-            Open Window 2 (Dashboard) →
-          </Link>
         </div>
       </div>
 
@@ -720,7 +717,7 @@ export default function AIBuyerPage() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold flex items-center gap-1.5">
               <ShieldCheck size={16} className="text-cyan-400" />
-              Pre-Flight Gate (Window 2 Sync)
+              Pre-Flight Gate
             </span>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
               LIVE VERIFICATION
@@ -841,18 +838,60 @@ export default function AIBuyerPage() {
             )}
           </div>
 
-          {/* Quick Demo Helper Box */}
-          <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs text-slate-400 space-y-2 font-mono">
-            <div className="font-bold text-white flex items-center gap-1.5">
-              <Zap size={14} className="text-cyan-400" /> Multi-Window Demo Instructions:
+          {/* Inline Live Controls Panel */}
+          <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 font-mono">
+            <div className="font-bold text-white text-xs flex items-center gap-1.5">
+              <Zap size={14} className="text-cyan-400" /> Live Simulation Controls
             </div>
-            <ol className="list-decimal pl-4 space-y-1 text-[11px] text-slate-400 leading-relaxed">
-              <li>Keep this <strong>Window 1 (AI Buyer)</strong> on the left.</li>
-              <li>Open <strong>Window 2 (<Link href="/dashboard/products" target="_blank" className="text-cyan-400 underline">Products</Link>)</strong> on the right.</li>
-              <li>In Window 2, click <strong>"Set ₹3,499"</strong> → Watch this window immediately turn RED & pause payment!</li>
-              <li>In Window 2, click <strong>"Restore ₹2,999"</strong> → Watch all 5 checks turn GREEN & payment unlock!</li>
-              <li>Click <strong>"Pay ₹2,999"</strong> → Complete Razorpay test modal & watch stock tick 5 → 4 LIVE!</li>
-            </ol>
+
+            {/* Price controls */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Price Integrity Test</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    setLivePrice(3499);
+                    setPriceDriftAlert('🚨 REAL-TIME PRICE CHANGE DETECTED: ₹2,999 → ₹3,499. Active transaction invalidated!');
+                  }}
+                  className="flex-1 py-2 rounded-lg bg-red-500/15 hover:bg-red-500/25 border border-red-500/40 text-red-300 text-xs font-bold transition-colors"
+                >
+                  🔴 Set ₹3,499 (Drift)
+                </button>
+                <button
+                  onClick={() => {
+                    setLivePrice(2999);
+                    setPriceDriftAlert(null);
+                    setSelectedProduct((p: any) => ({ ...p, selectedPrice: 2999 }));
+                  }}
+                  className="flex-1 py-2 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-colors"
+                >
+                  🟢 Restore ₹2,999
+                </button>
+              </div>
+            </div>
+
+            {/* Stock controls */}
+            <div className="space-y-1.5">
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Inventory Stress Test</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setLiveStock(0)}
+                  className="flex-1 py-2 rounded-lg bg-red-500/15 hover:bg-red-500/25 border border-red-500/40 text-red-300 text-xs font-bold transition-colors"
+                >
+                  🔴 Force Out-of-Stock
+                </button>
+                <button
+                  onClick={() => setLiveStock(5)}
+                  className="flex-1 py-2 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition-colors"
+                >
+                  🟢 Restore Stock (5)
+                </button>
+              </div>
+            </div>
+
+            <div className="text-[10px] text-slate-600 pt-1">
+              Controls trigger real-time security checks instantly — no second tab needed.
+            </div>
           </div>
 
         </div>
