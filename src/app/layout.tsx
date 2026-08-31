@@ -9,6 +9,11 @@ const rajdhani = Rajdhani({ subsets: ["latin"], variable: "--font-rajdhani", wei
 export const metadata: Metadata = {
   title: "Commerce Sentinel — The Security Layer for Agentic Commerce",
   description: "Verify. Authorize. Transact. Real-time security and authorization layer for AI buyer agents and Razorpay commerce.",
+  icons: {
+    icon: "/secure-payment.png",
+    shortcut: "/secure-payment.png",
+    apple: "/secure-payment.png",
+  },
 };
 
 export default function RootLayout({
