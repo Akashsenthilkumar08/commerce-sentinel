@@ -204,10 +204,9 @@ export default function DashboardOverview() {
             </h3>
             <a
               href="/buyer"
-              target="_blank"
               className="flex items-center gap-2 p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono hover:bg-cyan-500/20 transition-colors"
             >
-              <Activity size={14} /> Open AI Buyer (Window 1) →
+              <Activity size={14} /> Open AI Buyer Terminal →
             </a>
             <a
               href="/dashboard/products"

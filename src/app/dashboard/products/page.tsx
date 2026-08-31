@@ -495,14 +495,13 @@ export default function ProductsPage() {
             {/* Demo Instructions */}
             <div className="glass-card rounded-2xl border border-slate-800 p-5">
               <h3 className="text-xs font-mono font-bold text-white flex items-center gap-2 mb-3">
-                <Zap size={14} className="text-cyan-400" /> Multi-Window Demo
+                <Zap size={14} className="text-cyan-400" /> Sentinel Price Controls
               </h3>
               <ol className="space-y-2.5 text-[11px] text-slate-400 font-mono leading-relaxed">
-                <li className="flex gap-2"><span className="text-cyan-400 font-bold shrink-0">1.</span>Keep this window open as Window 2 (Dashboard).</li>
-                <li className="flex gap-2"><span className="text-cyan-400 font-bold shrink-0">2.</span>Open <a href="/buyer" target="_blank" className="text-cyan-400 underline underline-offset-2">Window 1 (AI Buyer) →</a></li>
-                <li className="flex gap-2"><span className="text-red-400 font-bold shrink-0">3.</span>Click <strong className="text-red-400">"Trigger Drift"</strong> → watch Window 1 turn RED instantly.</li>
-                <li className="flex gap-2"><span className="text-emerald-400 font-bold shrink-0">4.</span>Click <strong className="text-emerald-400">"Restore"</strong> → watch all 5 checks go GREEN.</li>
-                <li className="flex gap-2"><span className="text-white font-bold shrink-0">5.</span>Pay in Window 1 → watch stock decrement live here!</li>
+                <li className="flex gap-2"><span className="text-cyan-400 font-bold shrink-0">1.</span>Change product prices and inventory here.</li>
+                <li className="flex gap-2"><span className="text-cyan-400 font-bold shrink-0">2.</span>Navigate to <a href="/buyer" className="text-cyan-400 underline underline-offset-2">AI Buyer Terminal →</a></li>
+                <li className="flex gap-2"><span className="text-red-400 font-bold shrink-0">3.</span>Trigger price drift to watch Sentinel security checks turn RED instantly.</li>
+                <li className="flex gap-2"><span className="text-emerald-400 font-bold shrink-0">4.</span>Restore the original price to unlock payments.</li>
               </ol>
             </div>
           </div>

@@ -105,12 +105,10 @@ export default function SecuritySimulation() {
         <div className="flex items-center gap-3">
           <a
             href="/buyer"
-            target="_blank"
-            rel="noreferrer"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-mono transition-colors"
           >
             <Zap size={14} className="animate-pulse" />
-            Open Live AI Buyer Tab
+            Open AI Buyer Terminal
             <ExternalLink size={12} />
           </a>
 
