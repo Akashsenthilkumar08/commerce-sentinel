@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useAuth } from '@/context/AuthContext';
 import { 
   ShieldCheck, 
   ShieldAlert, 
@@ -15,12 +16,14 @@ import {
   Zap,
   CheckCircle2,
   ChevronRight,
+  User as UserIcon,
 } from 'lucide-react';
 import KineticGrid from '@/components/KineticGrid';
 import GlitchTitle from '@/components/GlitchTitle';
 import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home() {
+  const { user } = useAuth();
   const tickerItems = [
     "INTENT_LOCK #INT-92841 : ACTIVE",
     "RAZORPAY TEST MODE : AUTH_CAPTURE_ENABLED",
@@ -62,6 +65,24 @@ export default function Home() {
             >
               SIMULATOR
             </Link>
+
+            {user ? (
+              <Link
+                href="/dashboard"
+                className="text-xs font-mono text-cyan-300 border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1.5 rounded-full flex items-center gap-2 hover:bg-cyan-500/20 transition-all"
+              >
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="max-w-[120px] truncate">{user.displayName || user.email?.split('@')[0]}</span>
+              </Link>
+            ) : (
+              <Link 
+                href="/login" 
+                className="text-xs font-mono text-slate-300 hover:text-white px-3 py-1.5 rounded-full border border-white/10 hover:border-cyan-400/50 bg-white/5 transition-all flex items-center gap-1.5"
+              >
+                <UserIcon size={12} className="text-cyan-400" />
+                SIGN IN
+              </Link>
+            )}
 
             <Link 
               href="/dashboard" 
