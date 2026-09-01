@@ -19,6 +19,7 @@
 * **Merchant Dashboard:** [https://commerce-sentinel.vercel.app/dashboard](https://commerce-sentinel.vercel.app/dashboard)
 * **Attack Simulator:** [https://commerce-sentinel.vercel.app/dashboard/simulate](https://commerce-sentinel.vercel.app/dashboard/simulate)
 * **Audit Trail:** [https://commerce-sentinel.vercel.app/dashboard/audit](https://commerce-sentinel.vercel.app/dashboard/audit)
+* **Login & Auth Portal:** [https://commerce-sentinel.vercel.app/login](https://commerce-sentinel.vercel.app/login)
 
 ---
 
